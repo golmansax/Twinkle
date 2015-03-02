@@ -1,5 +1,8 @@
 sudo: false
 language: android
+cache:
+  directories:
+    - $HOME/.gradle/caches/
 android:
   components:
     - platform-tools
