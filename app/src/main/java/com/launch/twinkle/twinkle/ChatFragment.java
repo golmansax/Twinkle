@@ -87,7 +87,7 @@ public class ChatFragment extends ListFragment {
     view.findViewById(R.id.match_snippet).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Fragment matchFragment = new MatchFragment(chatId);
+        Fragment matchFragment = MatchFragment.newInstance(chatId);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.container, matchFragment);
 

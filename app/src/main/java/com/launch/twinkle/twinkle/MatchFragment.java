@@ -60,12 +60,13 @@ public class MatchFragment extends Fragment {
   private String matchId;
   private boolean hideFooter = false;
 
-  public MatchFragment() {
-  }
+  static MatchFragment newInstance(String matchId) {
+    MatchFragment f = new MatchFragment();
+    Bundle args = new Bundle();
+    args.putString("matchId", matchId);
+    f.setArguments(args);
 
-  public MatchFragment(String matchId) {
-    this.matchId = matchId;
-    hideFooter = true;
+    return f;
   }
 
   @Override
@@ -188,6 +189,11 @@ public class MatchFragment extends Fragment {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    if (getArguments() != null) {
+      this.matchId = getArguments().getString("matchId");
+      hideFooter = true;
+    }
   }
 
   @Override
